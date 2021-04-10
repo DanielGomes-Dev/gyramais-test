@@ -1,42 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from 'react';
 
-function App() {
-  const [messages, setMessages] = useState([
-    { id: 1, user: 'Daniel', message: 'Hello World' },
-    { id: 2, user: 'Daniel2', message: 'Hello World2' },
-    { id: 3, user: 'Daniel3', message: 'Hello World3' },
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-  ]);
+import Join from './components/Join/Join';
+import Chat from './components/Chat/Chat';
 
-  useEffect(() => {
-
-    const get = async () => {
-      const response = await fetch('http://localhost:3333/messages');
-      const data = await response.json();
-      setMessages(data);
-    };
-
-    get()
-
-  }, []);
-
-
-  const handleSendMessage = (user, message) => {
-    // sendMessage([...messages, { id: messages.length + 1, user: 'DanielNovo', message: 'New Message' }]);
-  }
-
-
+const App = () => {
   return (
-    <>
-      <ul>
-        {messages.map(msg => <li key={msg.id}> {msg.user} <br></br> {msg.message} </li>)}
-      </ul>
-
-      <button onClick={() => handleSendMessage}>
-        Enviar Menssagem
-      </button>
-    </>
-
+    <Router>
+      <Route path='/' exact component={Join} />
+      <Route path='/chat' component={Chat} />
+    </Router>
   )
 }
 
