@@ -1,0 +1,30 @@
+type Message{
+  _id: ID!,
+  userName: String!,
+  contentMessage: String!,
+  # time: String,
+  # systemMessage: Boolean!
+
+}
+
+input MessageInput {
+  userName: String!,
+  contentMessage: String!,
+  # time: String,
+  # systemMessage: Boolean!
+}
+
+type Query {
+  messages:[Message!]!
+  # user(_id:ID!): User
+}
+
+type Mutation{
+  sendMessage(data: MessageInput!): Boolean!
+  # updateUser(_id: ID!, data: MessageInput!): User
+  # deleteUser(_id: ID!): Boolean!
+}
+
+type Subscription {
+  messageAdded: Message!
+}

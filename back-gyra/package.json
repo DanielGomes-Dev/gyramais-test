@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon src/index.js -e js,gql",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,7 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "socket.io": "^4.0.1"
+    "apollo-server": "^2.22.2",
+    "graphql": "^15.5.0",
+    "merge-graphql-schemas": "^1.7.8",
+    "mongoose": "^5.12.3"
   }
 }
